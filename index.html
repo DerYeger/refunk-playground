@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>REFUNK Playground</title>
+  <meta name="description" content="Playground for the REFUNK library.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="REFUNK Playground">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://refunk.yeger.eu">
+  <meta property="og:image" content="static/logo.webp">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta name="theme-color" content="#fafafa">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@700&display=swap" rel="stylesheet">
+
+  <script src="js/main.js"></script>
+
+  <script src="https://unpkg.com/kotlin-playground@1"
+          data-server="https://yeger.eu/kotlin-compiler-server"
+          data-version="1.4.30">
+  </script>
+</head>
+
+<body>
+<div class="container">
+  <header>
+    <img class="page-title" src="static/logo.webp" alt="REFUNK">
+    <p class="page-subtitle"><i>A library for studying primitive recursive functions with Kotlin.</i></p>
+  </header>
+  <main>
+    <section>
+      <h2>Recursive Implementation</h2>
+      <p>
+        The recursive implementation relies solely on recursion in every implementation.
+        Thus, its performance it comparatively poor.
+      </p>
+      <refunk-playground use-recursion="true"></refunk-playground>
+    </section>
+    <section>
+      <h2>Non-recursive Implementation</h2>
+      <p>
+        Alternatively, you can use the non-recursive implementation of the <code>recursion</code> operator.
+        Its behaviour is identical to the actually recursive implementation, but its performance and usability is greatly improved.
+      </p>
+      <refunk-playground use-recursion="false"></refunk-playground>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2021, Jan Müller</span>
+    <a href="https://github.com/DerYeger/refunk-playground">GitHub Repository</a>
+  </footer>
+</div>
+</body>
+
+</html>

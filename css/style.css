@@ -1,0 +1,159 @@
+/* ------ */
+/* Variables */
+/* ------ */
+
+:root {
+  --size-title: min(100%, 24rem);
+  --size-subtitle: clamp(1.75rem, 3vw, 2.5rem);
+
+  --size-page-max-width: 50rem;
+
+  --spacing-default: 1rem;
+  --spacing-small: 0.5rem;
+  --spacing-large: 2rem;
+
+  --color-primary: #35ACF0;
+  --color-seconday: #ECA34A;
+  --color-accent: #E24A96;
+
+  --color-background: white;
+  --color-background-inverse: #666666;
+  --color-font: black;
+  --color-font-inverse: white;
+}
+
+/* ------ */
+/* Common */
+/* ------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-font);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+body,
+.container {
+  height: 100vh;
+}
+
+footer,
+.container {
+  margin: 0 auto;
+  max-width: var(--size-page-max-width);
+  padding: 0 var(--spacing-default);
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 0;
+}
+
+/* ------ */
+/* Footer */
+/* ------ */
+
+footer {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  width: 100%;
+}
+
+@media only screen and (min-width: 400px) {
+  footer {
+    flex-direction: row;
+  }
+
+  footer *:not(:last-child)::after {
+    content: ' - ';
+    white-space: pre;
+  }
+}
+
+/* ------ */
+/* Titles */
+/* ------ */
+
+h1,
+h2,
+.page-title {
+  font-family: 'MuseoModerno', cursive;
+}
+
+h1,
+h2 {
+  font-weight: 800;
+  line-height: 1;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.page-title {
+  color: var(--color-primary);
+  font-size: var(--size-title);
+  width: var(--size-title);
+}
+
+.page-subtitle {
+  font-size: var(--size-subtitle);
+}
+
+/* ---------------- */
+/* Spacing & Layout */
+/* ---------------- */
+
+main > * + * {
+  margin-top: var(--spacing-default);
+}
+
+section > * + * {
+  margin-top: var(--spacing-small);
+}
+
+section,
+.container > * + *{
+  margin-top: var(--spacing-large);
+}
+
+/* ---- */
+/* Code */
+/* ---- */
+
+code {
+  background-color: var(--color-background-inverse);
+  border-radius: 3px;
+  color: var(--color-font-inverse);
+  font-size: 85%;
+  font-weight: 400;
+  padding: .2em .4em;
+}
+
+/* ----- */
+/* Links */
+/* ----- */
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:focus-visible {
+  text-decoration: underline;
+}
