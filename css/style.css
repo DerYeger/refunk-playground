@@ -6,7 +6,7 @@
   --size-title: min(100%, 24rem);
   --size-subtitle: clamp(1.75rem, 3vw, 2.5rem);
 
-  --size-page-max-width: 50rem;
+  --size-page-max-width: 100rem;
 
   --spacing-default: 1rem;
   --spacing-small: 0.5rem;
@@ -70,7 +70,7 @@ footer {
   width: 100%;
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 600px) {
   footer {
     flex-direction: row;
   }
@@ -87,18 +87,21 @@ footer {
 
 h1,
 h2,
+h3,
 .page-title {
   font-family: 'MuseoModerno', cursive;
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-weight: 800;
   line-height: 1;
 }
 
 h1,
 h2,
+h3,
 p {
   margin: 0;
 }
@@ -125,8 +128,7 @@ section > * + * {
   margin-top: var(--spacing-small);
 }
 
-section,
-.container > * + *{
+* + section {
   margin-top: var(--spacing-large);
 }
 
@@ -156,4 +158,46 @@ a:hover,
 a:focus,
 a:focus-visible {
   text-decoration: underline;
+}
+
+.container {
+  display: grid;
+  column-gap: var(--spacing-default);
+  grid-template-columns: calc(40% - var(--spacing-default)) 60%;
+  grid-template-rows: min-content auto min-content;
+  grid-template-areas:
+    "h h"
+    "s m"
+    "f f";
+}
+
+@media only screen and (max-width: 960px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.container > * + *{
+  margin-top: var(--spacing-large);
+}
+
+header {
+  grid-area: h;
+}
+
+footer {
+  grid-area: f;
+}
+
+footer > * {
+  height: fit-content;
+}
+
+aside {
+  grid-area: s;
+}
+
+main {
+  grid-area: m;
 }

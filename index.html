@@ -1,8 +1,9 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
+
   <title>REFUNK Playground</title>
   <meta name="description" content="Playground for the REFUNK library.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,27 +38,57 @@
     <p class="page-subtitle"><i>A library for studying primitive recursive functions with Kotlin.</i></p>
   </header>
   <main>
+    <h2>
+      Playground
+    </h2>
     <section>
-      <h2>Recursive Implementation</h2>
+      <h3>Recursive Implementation</h3>
       <p>
-        The recursive implementation relies solely on recursion in every implementation.
-        Thus, its performance it comparatively poor.
+        The recursive implementation relies solely on recursion in every implementation, resulting in poor performance.
       </p>
       <refunk-playground use-recursion="true"></refunk-playground>
     </section>
     <section>
-      <h2>Non-recursive Implementation</h2>
+      <h3>Non-recursive Implementation</h3>
       <p>
         Alternatively, you can use the non-recursive implementation of the <code>recursion</code> operator.
-        Its behaviour is identical to the actually recursive implementation, but its performance and usability is greatly improved.
+        Its behaviour is identical to the actually recursive implementation, but its performance and usability is
+        greatly improved.
       </p>
       <refunk-playground use-recursion="false"></refunk-playground>
     </section>
   </main>
-
+  <aside>
+    <h2>Guide</h2>
+    <section>
+      <h3>Basic functions</h3>
+      <ul>
+        <li>
+          Constants: <code>val c = Constant(value)</code> with the helpers <code>constant(value)</code>, <code>const(value)</code>,
+          <code>zero</code> and <code>one</code>.
+        </li>
+        <li>
+          Successor: <code>val s = Successor()</code> with the helper <code>successor</code>.
+        </li>
+        <li>
+          Projection: <code>val p = Projection(index)</code> with the helpers <code>projection(index)</code> and <code>first</code>
+          to <code>tenth</code>.
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h3>Composition</h3>
+    </section>
+    <section>
+      <h3>Recursion</h3>
+      <refunk-playground folded-button="false" data-highlight-only>
+        val myRecursion = recursive(myRecursiveCaseFunction) withBaseCase myBaseCaseFunction
+      </refunk-playground>
+    </section>
+  </aside>
   <footer>
     <span>&copy; 2021, Jan Müller</span>
-    <a href="https://github.com/DerYeger/refunk-playground">GitHub Repository</a>
+    <a href="https://github.com/DerYeger/refunk-playground" target="_blank" rel="noopener">GitHub Repository</a>
   </footer>
 </div>
 </body>
