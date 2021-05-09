@@ -15,6 +15,7 @@
   --color-primary: #35ACF0;
   --color-seconday: #ECA34A;
   --color-accent: #E24A96;
+  --color-accent-alternative: #7864DD;
 
   --color-background: white;
   --color-background-inverse: #666666;
@@ -72,6 +73,10 @@ h4,
   font-family: 'MuseoModerno', cursive;
 }
 
+h1 {
+  font-size: calc(2 * var(--size-subtitle));
+}
+
 h1,
 h2,
 h3,
@@ -88,22 +93,30 @@ p {
   margin: 0;
 }
 
+.gradient-text {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-accent-alternative),
+    var(--color-accent),
+    var(--color-seconday),
+    var(--color-accent-alternative),
+    var(--color-primary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* ------ */
 /* Header */
 /* ------ */
 
 .page-title {
-  animation-name: slide-from-left;
-  animation-duration: .75s;
-  color: var(--color-primary);
+  animation: slide-from-left 0.75s;
+  display: inline-block;
   font-size: var(--size-title);
+  font-style: italic;
   width: var(--size-title);
-}
-
-.page-subtitle {
-  animation-name: slide-from-right;
-  animation-duration: .75s;
-  font-size: var(--size-subtitle);
 }
 
 @keyframes slide-from-left {
@@ -113,6 +126,13 @@ p {
   to {
     transform: translateX(0);
   }
+}
+
+.page-subtitle {
+  animation: slide-from-right 0.75s;
+  display: inline-block;
+  font-size: var(--size-subtitle);
+  font-style: italic;
 }
 
 @keyframes slide-from-right {
@@ -199,6 +219,10 @@ a:focus-visible {
   flex-direction: column;
 }
 
+.container > * + * {
+  margin-top: var(--spacing-large);
+}
+
 @media only screen and (min-width: 960px) {
   .container {
     display: grid;
@@ -210,10 +234,6 @@ a:focus-visible {
     "s m"
     "f f";
   }
-}
-
-.container > * + *{
-  margin-top: var(--spacing-large);
 }
 
 header {
