@@ -64,30 +64,47 @@
       <h3>Basic functions</h3>
       <ul>
         <li>
-          Constants: <code>val c = Constant(value)</code> with the helpers <code>constant(value)</code>, <code>const(value)</code>,
-          <code>zero</code> and <code>one</code>.
+          <code>constant(value)</code>, <code>const(value)</code>, <code>zero</code> and <code>one</code>.
         </li>
         <li>
-          Successor: <code>val s = Successor()</code> with the helper <code>successor</code>.
+          <code>Successor</code> and <code>successor</code>.
         </li>
         <li>
-          Projection: <code>val p = Projection(index)</code> with the helpers <code>projection(index)</code> and <code>first</code>
-          to <code>tenth</code>.
+          <code>projection(index)</code> and <code>first</code> to <code>tenth</code>.
         </li>
       </ul>
     </section>
     <section>
       <h3>Composition</h3>
+      <p>Composition is handled by the <code>Function::of</code> and <code>Function::invoke</code>.</p>
+      <refunk-playground folded-button="false" data-highlight-only>
+val f = ...
+val g1 = ...
+...
+val gn = ...
+val myComposition = f of { g1 and ... and gn }
+val myAltComp = f(g1, ..., gn)
+      </refunk-playground>
+      <h4>Unary functions</h4>
+      <p>Unary functions can also be composed with <code>Function::andThen</code>.</p>
+      <refunk-playground folded-button="false" data-highlight-only>
+        val myComposition = myFunction andThen myUnaryFunction
+      </refunk-playground>
     </section>
     <section>
       <h3>Recursion</h3>
+      <p>
+        Recursions can be defined using multiple extension methods.
+        Named projections help access the recursion results, parameters and arguments.
+      </p>
       <refunk-playground folded-button="false" data-highlight-only>
-        val myRecursion = recursive(myRecursiveCaseFunction) withBaseCase myBaseCaseFunction
+val addition = recursive { successor of recursionResult } withBaseCase firstBaseCaseArgument
+val predecessor = recursive(recursionParameter) withBaseCase zero
       </refunk-playground>
     </section>
   </aside>
   <footer>
-    <span>&copy; 2021, Jan Müller</span>
+    <span>&copy; 2021, Jan M&uuml;ller</span>
     <a href="https://github.com/DerYeger/refunk-playground" target="_blank" rel="noopener">GitHub Repository</a>
   </footer>
 </div>
