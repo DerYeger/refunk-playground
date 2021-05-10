@@ -18,7 +18,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
-  <link rel="manifest" href="static/site.webmanifest">
   <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ECA34A">
@@ -31,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,700&family=KoHo:ital,wght@1,700&display=swap" rel="stylesheet">
 
   <script src="js/main.js"></script>
 
@@ -44,9 +43,12 @@
 <body>
 <div class="container">
   <header>
-    <h1>
-      <img class="page-title gradient-text" src="static/logo.webp" alt="REFUNK">
-    </h1>
+    <div class="page-title">
+      <img src="static/logo.svg" alt="Logo">
+      <h1 class="gradient-text">
+        REFUNK
+      </h1>
+    </div>
     <p class="page-subtitle gradient-text">
       A library for studying primitive recursive functions with Kotlin.
     </p>
@@ -56,9 +58,10 @@
     <section>
       <h3>Recursive Implementation</h3>
       <p>
-        The recursive implementation relies solely on recursion in every implementation, resulting in poor performance.
+        The recursive implementation relies solely on recursion in every implementation, resulting in poor
+        performance.
       </p>
-      <refunk-playground use-recursion="true"></refunk-playground>
+      <refunk-playground use-recursion sample="basic"></refunk-playground>
     </section>
     <section>
       <h3>Non-recursive Implementation</h3>
@@ -67,10 +70,10 @@
         Its behaviour is identical to the actually recursive implementation, but its performance and usability is
         greatly improved.
       </p>
-      <refunk-playground use-recursion="false"></refunk-playground>
+      <refunk-playground sample="advanced"></refunk-playground>
     </section>
   </main>
-  <aside>
+  <aside id="guide">
     <h2>Guide</h2>
     <section>
       <h3>Basic functions</h3>
@@ -88,20 +91,15 @@
     </section>
     <section>
       <h3>Composition</h3>
-      <p>Composition is handled by the <code>Function::of</code> and <code>Function::invoke</code>.</p>
-      <refunk-playground folded-button="false" data-highlight-only>
-val f = ...
-val g1 = ...
-...
-val gn = ...
-val myComposition = f of { g1 and ... and gn }
-val myAltComp = f(g1, ..., gn)
-      </refunk-playground>
+      <p>
+        Composition is handled by the <code>Function::of</code> and <code>Function::invoke</code>.
+      </p>
+      <refunk-playground sample="guideComposition" folded-button="false" data-highlight-only></refunk-playground>
       <h4>Unary functions</h4>
-      <p>Unary functions can also be composed with <code>Function::andThen</code>.</p>
-      <refunk-playground folded-button="false" data-highlight-only>
-        val myComposition = myFunction andThen myUnaryFunction
-      </refunk-playground>
+      <p>
+        Unary functions can also be composed with <code>Function::andThen</code>.
+      </p>
+      <refunk-playground sample="guideUnaryComposition" folded-button="false" data-highlight-only></refunk-playground>
     </section>
     <section>
       <h3>Recursion</h3>
@@ -109,10 +107,22 @@ val myAltComp = f(g1, ..., gn)
         Recursions can be defined using multiple extension methods.
         Named projections help access the recursion results, parameters and arguments.
       </p>
-      <refunk-playground folded-button="false" data-highlight-only>
-val addition = recursive { successor of recursionResult } withBaseCase firstBaseCaseArgument
-val predecessor = recursive(recursionParameter) withBaseCase zero
-      </refunk-playground>
+      <refunk-playground sample="guideRecursion" folded-button="false" data-highlight-only></refunk-playground>
+    </section>
+  </aside>
+  <aside id="examples">
+    <h2>Examples</h2>
+    <section>
+      <h3>Subtraction</h3>
+      <refunk-playground sample="exampleSubtraction" use-recursion></refunk-playground>
+    </section>
+    <section>
+      <h3>Multiplication</h3>
+      <refunk-playground sample="exampleMultiplication" use-recursion></refunk-playground>
+    </section>
+    <section>
+      <h3>Division</h3>
+      <refunk-playground sample="exampleDivision" use-recursion></refunk-playground>
     </section>
   </aside>
   <footer>
