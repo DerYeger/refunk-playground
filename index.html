@@ -5,38 +5,39 @@
   <meta charset="utf-8">
 
   <title>REFUNK Playground</title>
-  <meta name="description" content="Playground for the REFUNK Kotlin library.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="Playground for the REFUNK Kotlin library." name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
 
-  <meta property="og:title" content="REFUNK Playground">
-  <meta property="og:description" content="Playground for the REFUNK Kotlin library.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://refunk.yeger.eu/">
-  <meta property="og:image" content="https://refunk.yeger.eu/static/og-logo.png">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta content="REFUNK Playground" property="og:title">
+  <meta content="Playground for the REFUNK Kotlin library." property="og:description">
+  <meta content="website" property="og:type">
+  <meta content="https://refunk.yeger.eu/" property="og:url">
+  <meta content="https://refunk.yeger.eu/static/og-logo.png" property="og:image">
+  <meta content="summary_large_image" name="twitter:card">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
-  <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ECA34A">
+  <link href="static/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+  <link href="static/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+  <link href="static/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+  <link color="#5bbad5" href="static/safari-pinned-tab.svg" rel="mask-icon">
+  <meta content="#da532c" name="msapplication-TileColor">
+  <meta content="#ECA34A" name="theme-color">
 
-  <link rel="canonical" href="https://refunk.yeger.eu/">
+  <link href="https://refunk.yeger.eu/" rel="canonical">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link href="css/style.css" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,700&family=KoHo:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,700&family=KoHo:ital,wght@1,700&display=swap"
+        rel="stylesheet">
 
   <script src="js/main.js"></script>
 
-  <script src="https://unpkg.com/kotlin-playground@1.24.0"
-          data-server="https://yeger.eu/kotlin-compiler-server"
-          data-version="1.4.30">
+  <script data-server="https://yeger.eu/kotlin-compiler-server"
+          data-version="1.4.30"
+          src="https://unpkg.com/kotlin-playground@1.24.0">
   </script>
 </head>
 
@@ -44,7 +45,7 @@
 <div class="container">
   <header>
     <div class="page-title">
-      <img src="static/logo.svg" alt="Logo">
+      <img alt="Logo" src="static/logo.svg">
       <h1 class="gradient-text">
         REFUNK
       </h1>
@@ -61,7 +62,7 @@
         The recursive implementation relies solely on recursion in every implementation, resulting in poor
         performance.
       </p>
-      <refunk-playground use-recursion sample="basic"></refunk-playground>
+      <refunk-playground sample="basic" use-recursion></refunk-playground>
     </section>
     <section>
       <h3>Non-recursive Implementation</h3>
@@ -94,12 +95,12 @@
       <p>
         Composition is handled by the <code>Function::of</code> and <code>Function::invoke</code>.
       </p>
-      <refunk-playground sample="guideComposition" folded-button="false" data-highlight-only></refunk-playground>
+      <refunk-playground data-highlight-only folded-button="false" sample="guideComposition"></refunk-playground>
       <h4>Unary functions</h4>
       <p>
         Unary functions can also be composed with <code>Function::andThen</code>.
       </p>
-      <refunk-playground sample="guideUnaryComposition" folded-button="false" data-highlight-only></refunk-playground>
+      <refunk-playground data-highlight-only folded-button="false" sample="guideUnaryComposition"></refunk-playground>
     </section>
     <section>
       <h3>Recursion</h3>
@@ -107,7 +108,7 @@
         Recursions can be defined using multiple extension methods.
         Named projections help access the recursion results, parameters and arguments.
       </p>
-      <refunk-playground sample="guideRecursion" folded-button="false" data-highlight-only></refunk-playground>
+      <refunk-playground data-highlight-only folded-button="false" sample="guideRecursion"></refunk-playground>
     </section>
   </aside>
   <aside id="examples">
@@ -127,7 +128,7 @@
   </aside>
   <footer>
     <span>&copy; 2021, Jan M&uuml;ller</span>
-    <a href="https://github.com/DerYeger/refunk-playground" target="_blank" rel="noopener">GitHub Repository</a>
+    <a href="https://github.com/DerYeger/refunk-playground" rel="noopener" target="_blank">GitHub Repository</a>
   </footer>
 </div>
 </body>
