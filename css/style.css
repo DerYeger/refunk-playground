@@ -160,6 +160,15 @@ header {
   }
 }
 
+/* ---------- */
+/* Navigation */
+/* ---------- */
+
+nav ul {
+  margin-top: var(--spacing-default);
+  margin-bottom: 0;
+}
+
 /* ------ */
 /* Footer */
 /* ------ */
@@ -220,6 +229,10 @@ a:focus-visible {
 }
 
 @media only screen and (min-width: 960px) {
+  nav {
+    display: none;
+  }
+
   .container {
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -245,6 +258,7 @@ a:focus-visible {
 }
 
 header,
+nav,
 main,
 aside,
 footer {
