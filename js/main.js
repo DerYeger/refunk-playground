@@ -50,13 +50,12 @@ const samples = {
     val addition = recursive { successor of recursionResult } withBaseCase firstBaseCaseArgument
     val predecessor = recursive(recursionParameter) withBaseCase zero
   `,
-  guideUnaryComposition: `val myComposition = myFunction andThen myUnaryFunction`
-}
+  guideUnaryComposition: `val myComposition = myFunction andThen myUnaryFunction`,
+};
 
 function trimIndent(indentedString) {
-  return indentedString?.replaceAll(/\s\s+/g, '\n')
+  return indentedString?.replaceAll(/\s\s+/g, '\n');
 }
-
 
 function createEditorContent(sample, useRecursion) {
   return `
@@ -69,27 +68,27 @@ function createEditorContent(sample, useRecursion) {
     ${sample}
     //sampleEnd
     }
-  `
+  `;
 }
 
 class RefunkPlayground extends HTMLElement {
   connectedCallback() {
-    KotlinPlayground('refunk-playground')
+    KotlinPlayground('refunk-playground');
 
-    this.setAttribute('highlight-on-fly', true.toString())
-    this.setAttribute('theme', 'darcula')
+    this.setAttribute('highlight-on-fly', true.toString());
+    this.setAttribute('theme', 'darcula');
 
-    const useRecursion = this.getAttribute('use-recursion')
-    const sampleName = this.getAttribute('sample')
-    const sample = trimIndent(samples[sampleName])
+    const useRecursion = this.getAttribute('use-recursion');
+    const sampleName = this.getAttribute('sample');
+    const sample = trimIndent(samples[sampleName]);
 
     if (this.getAttribute('data-highlight-only') !== null) {
-      this.innerHTML = sample || this.innerHTML
+      this.innerHTML = sample || this.innerHTML;
       return;
     }
 
-    this.innerHTML = trimIndent(createEditorContent(sample || '// This is the REFUNK playground.', useRecursion))
+    this.innerHTML = trimIndent(createEditorContent(sample || '// This is the REFUNK playground.', useRecursion));
   }
 }
 
-window.customElements.define('refunk-playground', RefunkPlayground)
+window.customElements.define('refunk-playground', RefunkPlayground);

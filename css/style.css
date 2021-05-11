@@ -1,6 +1,6 @@
-/* ------ */
+/* --------- */
 /* Variables */
-/* ------ */
+/* --------- */
 
 :root {
   --size-title: clamp(3.5rem, 6vw, 5rem);
@@ -12,10 +12,10 @@
   --spacing-small: 0.5rem;
   --spacing-large: 2rem;
 
-  --color-primary: #35ACF0;
-  --color-seconday: #ECA34A;
-  --color-accent: #E24A96;
-  --color-accent-alternative: #7864DD;
+  --color-primary: #35acf0;
+  --color-seconday: #eca34a;
+  --color-accent: #e24a96;
+  --color-accent-alternative: #7864dd;
 
   --color-background: white;
   --color-background-inverse: #666666;
@@ -102,6 +102,7 @@ p {
     var(--color-accent-alternative),
     var(--color-primary)
   );
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -160,15 +161,6 @@ header {
   }
 }
 
-/* ---------- */
-/* Navigation */
-/* ---------- */
-
-nav ul {
-  margin-top: var(--spacing-default);
-  margin-bottom: 0;
-}
-
 /* ------ */
 /* Footer */
 /* ------ */
@@ -191,6 +183,15 @@ footer {
   }
 }
 
+/* ------*/
+/* Lists */
+/* ----- */
+
+ul {
+  margin-top: var(--spacing-default);
+  margin-bottom: 0;
+}
+
 /* ---- */
 /* Code */
 /* ---- */
@@ -201,7 +202,7 @@ code {
   color: var(--color-font-inverse);
   font-size: 85%;
   font-weight: 400;
-  padding: .2em .4em;
+  padding: 0.2em 0.4em;
 }
 
 /* ----- */
@@ -238,10 +239,10 @@ a:focus-visible {
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: min-content auto auto min-content;
     grid-template-areas:
-    "h h"
-    "g m"
-    "g e"
-    "f f";
+      'h h'
+      'g m'
+      'g e'
+      'f f';
   }
 }
 
@@ -251,19 +252,10 @@ a:focus-visible {
     grid-template-columns: repeat(3, calc(100% / 3));
     grid-template-rows: min-content auto min-content;
     grid-template-areas:
-    "h h h"
-    "g m e"
-    "f f f";
+      'h h h'
+      'g m e'
+      'f f f';
   }
-}
-
-header,
-nav,
-main,
-aside,
-footer {
-  padding: var(--spacing-large) var(--spacing-default);
-  padding-bottom: 0;
 }
 
 header {
@@ -289,6 +281,15 @@ footer {
 /* ------- */
 /* Spacing */
 /* ------- */
+
+header,
+nav,
+main,
+aside,
+footer {
+  padding: var(--spacing-large) var(--spacing-default);
+  padding-bottom: 0;
+}
 
 :is(header, main) > * + * {
   margin-top: var(--spacing-default);

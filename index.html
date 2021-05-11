@@ -1,144 +1,128 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
 
-<head>
-  <meta charset="utf-8">
+    <title>REFUNK Playground</title>
+    <meta content="Playground for the REFUNK Kotlin library." name="description" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-  <title>REFUNK Playground</title>
-  <meta content="Playground for the REFUNK Kotlin library." name="description">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="REFUNK Playground" property="og:title" />
+    <meta content="Playground for the REFUNK Kotlin library." property="og:description" />
+    <meta content="website" property="og:type" />
+    <meta content="https://refunk.yeger.eu/" property="og:url" />
+    <meta content="https://refunk.yeger.eu/static/og-logo.png" property="og:image" />
+    <meta content="summary_large_image" name="twitter:card" />
 
-  <meta content="REFUNK Playground" property="og:title">
-  <meta content="Playground for the REFUNK Kotlin library." property="og:description">
-  <meta content="website" property="og:type">
-  <meta content="https://refunk.yeger.eu/" property="og:url">
-  <meta content="https://refunk.yeger.eu/static/og-logo.png" property="og:image">
-  <meta content="summary_large_image" name="twitter:card">
+    <link href="static/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="static/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="static/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link color="#5bbad5" href="static/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#da532c" name="msapplication-TileColor" />
+    <meta content="#ECA34A" name="theme-color" />
 
-  <link href="static/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
-  <link href="static/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-  <link href="static/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
-  <link color="#5bbad5" href="static/safari-pinned-tab.svg" rel="mask-icon">
-  <meta content="#da532c" name="msapplication-TileColor">
-  <meta content="#ECA34A" name="theme-color">
+    <link href="https://refunk.yeger.eu/" rel="canonical" />
 
-  <link href="https://refunk.yeger.eu/" rel="canonical">
+    <link href="css/style.css" rel="stylesheet" />
 
-  <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,700&family=KoHo:ital,wght@1,700&display=swap" rel="stylesheet" />
 
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,700&family=KoHo:ital,wght@1,700&display=swap"
-        rel="stylesheet">
+    <script src="js/main.js"></script>
 
-  <script src="js/main.js"></script>
+    <script
+      data-server="https://yeger.eu/kotlin-compiler-server"
+      data-version="1.4.30"
+      src="https://unpkg.com/kotlin-playground@1.24.0"
+    ></script>
+  </head>
 
-  <script data-server="https://yeger.eu/kotlin-compiler-server"
-          data-version="1.4.30"
-          src="https://unpkg.com/kotlin-playground@1.24.0">
-  </script>
-</head>
-
-<body>
-<div class="container">
-  <header>
-    <div class="page-title">
-      <img alt="Logo" src="static/logo.svg">
-      <h1 class="gradient-text">
-        REFUNK
-      </h1>
+  <body>
+    <div class="container">
+      <header>
+        <div class="page-title">
+          <img alt="Logo" src="static/logo.svg" />
+          <h1 class="gradient-text">REFUNK</h1>
+        </div>
+        <p class="page-subtitle gradient-text">A library for studying primitive recursive functions with Kotlin.</p>
+      </header>
+      <nav>
+        <h2>Navigation</h2>
+        <ul>
+          <li><a href="#playground">Playground</a></li>
+          <li><a href="#guide">Guide</a></li>
+          <li><a href="#examples">Examples</a></li>
+        </ul>
+      </nav>
+      <main id="playground">
+        <h2>Playground</h2>
+        <section>
+          <h3>Recursive Implementation</h3>
+          <p>The recursive implementation relies solely on recursion in every implementation, resulting in poor performance.</p>
+          <refunk-playground sample="basic" use-recursion></refunk-playground>
+        </section>
+        <section>
+          <h3>Non-recursive Implementation</h3>
+          <p>
+            Alternatively, you can use the non-recursive implementation of the
+            <code>recursion</code> operator. Its behaviour is identical to the actually recursive implementation, but its performance and
+            usability is greatly improved.
+          </p>
+          <refunk-playground sample="advanced"></refunk-playground>
+        </section>
+      </main>
+      <aside id="guide">
+        <h2>Guide</h2>
+        <section>
+          <h3>Basic functions</h3>
+          <ul>
+            <li><code>constant(value)</code>, <code>const(value)</code>, <code>zero</code> and <code>one</code>.</li>
+            <li><code>Successor</code> and <code>successor</code>.</li>
+            <li><code>projection(index)</code> and <code>first</code> to <code>tenth</code>.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Composition</h3>
+          <p>Composition is handled by the <code>Function::of</code> and <code>Function::invoke</code>.</p>
+          <refunk-playground data-highlight-only folded-button="false" sample="guideComposition"></refunk-playground>
+          <h4>Unary functions</h4>
+          <p>
+            Unary functions can also be composed with
+            <code>Function::andThen</code>.
+          </p>
+          <refunk-playground data-highlight-only folded-button="false" sample="guideUnaryComposition"></refunk-playground>
+        </section>
+        <section>
+          <h3>Recursion</h3>
+          <p>
+            Recursions can be defined using multiple extension methods. Named projections help access the recursion results, parameters and
+            arguments.
+          </p>
+          <refunk-playground data-highlight-only folded-button="false" sample="guideRecursion"></refunk-playground>
+        </section>
+      </aside>
+      <aside id="examples">
+        <h2>Examples</h2>
+        <section>
+          <h3>Subtraction</h3>
+          <refunk-playground sample="exampleSubtraction" use-recursion></refunk-playground>
+        </section>
+        <section>
+          <h3>Multiplication</h3>
+          <refunk-playground sample="exampleMultiplication" use-recursion></refunk-playground>
+        </section>
+        <section>
+          <h3>Division</h3>
+          <refunk-playground sample="exampleDivision" use-recursion></refunk-playground>
+        </section>
+      </aside>
+      <footer>
+        <span>&copy; 2021, Jan M&uuml;ller</span>
+        <a href="https://github.com/DerYeger/refunk-playground" rel="noopener" target="_blank"> GitHub Repository </a>
+      </footer>
     </div>
-    <p class="page-subtitle gradient-text">
-      A library for studying primitive recursive functions with Kotlin.
-    </p>
-  </header>
-  <nav>
-    <h2>Navigation</h2>
-    <ul>
-      <li><a href="#playground">Playground</a></li>
-      <li><a href="#guide">Guide</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-  </nav>
-  <main id="playground">
-    <h2>Playground</h2>
-    <section>
-      <h3>Recursive Implementation</h3>
-      <p>
-        The recursive implementation relies solely on recursion in every implementation, resulting in poor
-        performance.
-      </p>
-      <refunk-playground sample="basic" use-recursion></refunk-playground>
-    </section>
-    <section>
-      <h3>Non-recursive Implementation</h3>
-      <p>
-        Alternatively, you can use the non-recursive implementation of the <code>recursion</code> operator.
-        Its behaviour is identical to the actually recursive implementation, but its performance and usability is
-        greatly improved.
-      </p>
-      <refunk-playground sample="advanced"></refunk-playground>
-    </section>
-  </main>
-  <aside id="guide">
-    <h2>Guide</h2>
-    <section>
-      <h3>Basic functions</h3>
-      <ul>
-        <li>
-          <code>constant(value)</code>, <code>const(value)</code>, <code>zero</code> and <code>one</code>.
-        </li>
-        <li>
-          <code>Successor</code> and <code>successor</code>.
-        </li>
-        <li>
-          <code>projection(index)</code> and <code>first</code> to <code>tenth</code>.
-        </li>
-      </ul>
-    </section>
-    <section>
-      <h3>Composition</h3>
-      <p>
-        Composition is handled by the <code>Function::of</code> and <code>Function::invoke</code>.
-      </p>
-      <refunk-playground data-highlight-only folded-button="false" sample="guideComposition"></refunk-playground>
-      <h4>Unary functions</h4>
-      <p>
-        Unary functions can also be composed with <code>Function::andThen</code>.
-      </p>
-      <refunk-playground data-highlight-only folded-button="false" sample="guideUnaryComposition"></refunk-playground>
-    </section>
-    <section>
-      <h3>Recursion</h3>
-      <p>
-        Recursions can be defined using multiple extension methods.
-        Named projections help access the recursion results, parameters and arguments.
-      </p>
-      <refunk-playground data-highlight-only folded-button="false" sample="guideRecursion"></refunk-playground>
-    </section>
-  </aside>
-  <aside id="examples">
-    <h2>Examples</h2>
-    <section>
-      <h3>Subtraction</h3>
-      <refunk-playground sample="exampleSubtraction" use-recursion></refunk-playground>
-    </section>
-    <section>
-      <h3>Multiplication</h3>
-      <refunk-playground sample="exampleMultiplication" use-recursion></refunk-playground>
-    </section>
-    <section>
-      <h3>Division</h3>
-      <refunk-playground sample="exampleDivision" use-recursion></refunk-playground>
-    </section>
-  </aside>
-  <footer>
-    <span>&copy; 2021, Jan M&uuml;ller</span>
-    <a href="https://github.com/DerYeger/refunk-playground" rel="noopener" target="_blank">GitHub Repository</a>
-  </footer>
-</div>
-</body>
-
+  </body>
 </html>
