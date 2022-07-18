@@ -69,7 +69,8 @@ h2,
 h3,
 h4,
 .page-title {
-  font-family: 'Cabin', cursive;
+  font-family: 'Cabin', sans-serif;
+  font-style: italic;
 }
 
 h1 {
