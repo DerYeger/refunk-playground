@@ -303,3 +303,18 @@ section > * + * {
 * + section {
   margin-top: var(--spacing-large);
 }
+
+/* ------- */
+/* Warning */
+/* ------- */
+
+.warning {
+  background: linear-gradient(45deg, orange, darkorange);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  padding: 2rem;
+}
+
+.warning a {
+  color: white;
+}

@@ -32,11 +32,12 @@
 
     <script src="js/main.js"></script>
 
-    <script
-      data-server="https://kotlin-compiler-server-production.up.railway.app"
+    <script data-version="1.4.30" src="https://unpkg.com/kotlin-playground@1.24.0"></script>
+    <!-- <script
+      data-server="DATA_SERVER_URL"
       data-version="1.4.30"
       src="https://unpkg.com/kotlin-playground@1.24.0"
-    ></script>
+    ></script> -->
   </head>
 
   <body>
@@ -58,6 +59,15 @@
       </nav>
       <main id="playground">
         <h2>Playground</h2>
+        <div class="warning">
+          <p>
+            Unfortunately, the Kotlin Compiler Server used for executing the interactive examples had to be shut down due to cost reasons.
+          </p>
+          <p>
+            Read more about REFUNK on the
+            <a href="https://github.com/DerYeger/refunk" target="_blank" rel="noreferrer">official GitHub repository</a>.
+          </p>
+        </div>
         <section>
           <h3>Recursive Implementation</h3>
           <p>The recursive implementation relies solely on recursion in every implementation, resulting in poor performance.</p>
